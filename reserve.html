@@ -59,7 +59,7 @@
                 email: $("#email").val().trim(),
             };
             // Post new client
-            $.post("/api/customers", newCustomer)
+            $.post("/api/tables", newCustomer)
                 .then(function(data) {
                     console.log("add.html", data);
                     alert("Adding reservation");
