@@ -13,6 +13,9 @@ let PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// ID Counter
+let counter = 1;
+
 // Tables
 // =============================================================
 const tables = [];
@@ -53,6 +56,8 @@ app.post("/api/tables", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     var newReservation = req.body;
+    newReservation.uniqueID = counter;
+    counter++;
 
     console.log(newReservation);
 
