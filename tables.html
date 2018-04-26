@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant - Reservation</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="glyphicon glyphicon-fire text-center"></span>Hot Restaurant
+            </h1>
+            <h3 class="text-center">Make your reservation</h3>
+            <hr>
+            <a href="/tables">
+                <button class="btn btn-primary btn-lg">
+                    <span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
+            </a>
+            <!-- ***** EDIT href LINK *****  -->
+            <a href="/">
+                <button class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-home"></span>
+                </button>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default" id="reservations">
+                    <div class="panel-heading">
+
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="waitinglist">
+                    <div class="panel-body">
+                        Basic panel example
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Post input when search button is clicked
+        // Post new client
+        $.get("/api/tables", function (data) {
+            for (var k =0; k < data.length; k++){
+                console.log(data[k].name);}
+            $("#reservations").html(data);
+           console.log(data)
+        });
+
+    </script>
+</body>
+
+</html
